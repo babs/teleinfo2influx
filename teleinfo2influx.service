@@ -1,0 +1,18 @@
+[Unit]
+Description=Teleinfo to InfluxDB
+After=network.target
+
+[Service]
+User=root
+Group=root
+Type=simple
+Environment=PYTHONUNBUFFERED=1
+WorkingDirectory=/opt/teleinfo2influx/
+ExecStart=/opt/teleinfo2influx/teleinfo2influx.py
+KillMode=mixed
+PrivateTmp=true
+Restart=always
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target
